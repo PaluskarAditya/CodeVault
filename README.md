@@ -1,6 +1,3 @@
-
----
-
 # 🚀 CodeVault – Secure Snippet Locker
 
 **CodeVault** is a modern, secure, and privacy-focused code snippet locker built with the **MERN stack**.
