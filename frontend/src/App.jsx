@@ -71,7 +71,7 @@ export default function App() {
 
         const data = await res.json();
         if (data.success && data.snipp) {
-          const { name, description, code, visibility, expiry, lang, protect } =
+          const { name, description, code, visibility, expiry, lang, isProtected } =
             data.snipp;
           setSnipp((prev) => ({
             ...prev,
@@ -81,7 +81,7 @@ export default function App() {
             visibility,
             expiry,
             lang,
-            protect,
+            protect: isProtected,
           }));
           setIsProtected(isProtected);
         }

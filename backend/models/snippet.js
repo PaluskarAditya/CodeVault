@@ -39,7 +39,7 @@ const snippetSchema = mongoose.Schema({
     type: Boolean,
     required: true
   }
-});
+}, { timestamps: true });
 
 const Snippet =
   mongoose.models.Snippet || mongoose.model("Snippet", snippetSchema);

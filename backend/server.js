@@ -45,7 +45,7 @@ app.post("/api/create", async (req, res) => {
         name,
         description: desc,
         pass: pass ? await hashPass(pass) : undefined,
-        isProtected: protect
+        isProtected: pass ? true : false
       });
 
       return res.status(200).json({ success: true, snippet: newSnippet });
@@ -63,6 +63,7 @@ app.post("/api/create", async (req, res) => {
 
     if (pass) {
       updateFields.pass = await hashPass(pass);
+      updateFields.isProtected = true;
     }
 
     const updatedSnippet = await Snippet.findOneAndUpdate(
