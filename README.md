@@ -1,3 +1,4 @@
+
 ---
 
 # 🚀 CodeVault – Secure Snippet Locker
