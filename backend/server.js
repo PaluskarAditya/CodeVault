@@ -27,7 +27,7 @@ app.get("/foo", (req, res) => res.send("bar"));
 // @POST - Create Snippet
 app.post("/api/create", async (req, res) => {
   try {
-    const { uuid, lang, pass, visibility, name, desc, code, expiry } = req.body;
+    const { uuid, lang, pass, visibility, name, desc, code, expiry, protect } = req.body;
 
     if (!uuid || !lang || !name || !code) {
       return res.status(400).json({ err: "Specified fields required" });
@@ -45,6 +45,7 @@ app.post("/api/create", async (req, res) => {
         name,
         description: desc,
         pass: pass ? await hashPass(pass) : undefined,
+        isProtected: protect ? true : false
       });
 
       return res.status(200).json({ success: true, snippet: newSnippet });
