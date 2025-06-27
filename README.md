@@ -7,7 +7,7 @@ Create and store code snippets with optional password protection and expiry sett
 
 ## 🔗 Live Demo
 
-👉 [https://codevault.vercel.app](https://codevault.vercel.app)
+👉 [https://codevaultapp.vercel.app](https://codevaultapp.vercel.app)
 
 ---
 
