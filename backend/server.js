@@ -45,7 +45,7 @@ app.post("/api/create", async (req, res) => {
         name,
         description: desc,
         pass: pass ? await hashPass(pass) : undefined,
-        isProtected: protect ? true : false
+        isProtected: protect
       });
 
       return res.status(200).json({ success: true, snippet: newSnippet });
