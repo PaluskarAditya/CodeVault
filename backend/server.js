@@ -96,10 +96,7 @@ app.get("/api/snipp", async (req, res) => {
 
     const today = new Date().toISOString().split("T")[0];
     const expiry = new Date(snipp.expiry).toISOString().split("T")[0];
-
-    if (expiry && isNaN(new Date(expiry).getTime())) {
-      return res.status(400).json({ err: "Invalid expiry date format" });
-    }
+    console.log(today, expiry);
 
     if (today > expiry) {
       return res.status(410).json({ err: "Snippet expired" });
@@ -127,11 +124,6 @@ app.post("/api/verify-password", async (req, res) => {
 
     // Compare passwords
     const isMatch = await comparePass(password, snipp.pass);
-    console.log("Comparing:", {
-      input: password,
-      storedHash: snipp.pass,
-      match: isMatch,
-    });
     if (!isMatch) return res.status(401).json({ error: "Incorrect password" });
 
     // Return full snippet data after verification
